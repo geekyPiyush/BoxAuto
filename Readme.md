@@ -84,25 +84,25 @@ Report generated for running 2 login tests out of which 1 failed
 BoxAuto is built upon as a Maven project hence all the Helpers and factory methods goes in `/src/main` and all the test features and resources goto `src/test`
 
 * `src/main/java` comprises of 
-   a. all the Helpers methods for element operations on the screen
-   b. The Drivers package dealing with loading the browser,dimensions and related drivers
-   c. Factory package deals with core logic for critical operations in the system.
-   d. Hooks package for taking screenshot after scenario fails
-   e. Loaders for loading appropriate json files into memory
-   f. Loggers for formatted logging purpose
-   g. state for maintaing common state across steps.
-   h. resources comprising of 
-      * common configurations such as desktop_browser properties and live.json
-      * test data files for uploading purpose in application
-      * testng xml files 
-      * browser driver for chrome and firefox
+   * all the Helpers methods for element operations on the screen
+   * The Drivers package dealing with loading the browser,dimensions and related drivers
+   * Factory package deals with core logic for critical operations in the system.
+   * Hooks package for taking screenshot after scenario fails
+   * Loaders for loading appropriate json files into memory
+   * Loggers for formatted logging purpose
+   * state for maintaing common state across steps.
+   * resources comprising of 
+      1. common configurations such as desktop_browser properties and live.json
+      2. test data files for uploading purpose in application
+      3. testng xml files 
+      4. browser driver for chrome and firefox
 
 * `src/test/java` comprises of
-   a. Constants containing the page locators.
-   b. PageObjects for creating webelements out of locators.
-   c. Steps having functional step definitions for every area
-   d. TestRunner file or testng runner file
-   e. resources comprising of ** Feature files ** for every functionality
+   * Constants containing the page locators.
+   * PageObjects for creating webelements out of locators.
+   * Steps having functional step definitions for every area
+   * TestRunner file or testng runner file
+   * resources comprising of ** Feature files ** for every functionality
 
 
  
