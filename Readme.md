@@ -12,7 +12,7 @@ Below are the test cases that have been automated as part of this exercise
  * Create,rename and delete a new collection
  * Add a folder to an existing collection
 
-Note: Search functionality is not working on box.com. Hence can't be automated
+**Note**: Search functionality is not working on box.com. Hence can't be automated
 
 ## Tech Stack
 Below are the tools and libraries utilizid within this framework
