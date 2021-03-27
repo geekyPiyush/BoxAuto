@@ -42,9 +42,9 @@ Below are the tools and libraries utilizid within this framework
    
 ### Breakdown of above test command
    
-   1. mvn clean test : Maven lifecyle phase to run surefire tests after cleaning the project
-   2. -P chrome : Profile to run - Currently it is chrome, means the tests would be running in chrome browser. Other value accepted is **firefox**
-   3. -Dcucumber.options="--tags @functional" : Tags to run in cucumber. Can accept any other tags present in the feature files.
+   1. **mvn clean test** : Maven lifecyle phase to run surefire tests after cleaning the project
+   2. **-P chrome** : Profile to run - Currently it is chrome, means the tests would be running in chrome browser. Other value accepted is **firefox**
+   3. **-Dcucumber.options="--tags @functional"** : Tags to run in cucumber. Can accept any other tags present in the feature files. Other value accepted is         **@login,@files,@folder,@collections**
 
 6. You can also pass the credentials for logging into the box account via above command line as follows
 
