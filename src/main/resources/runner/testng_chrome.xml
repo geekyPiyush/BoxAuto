@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Box.com test task" parallel="tests" thread-count="1" configfailurepolicy="continue">
+    <parameter name="category" value="desktop_browser"/>
+    <test name="desktop_browsers_chrome_desktop">
+        <parameter name="id" value="chrome_desktop"/>
+        <classes>
+            <class name="TestRunner"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

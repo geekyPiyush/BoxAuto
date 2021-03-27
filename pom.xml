@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.payoneer</groupId>
+    <artifactId>com.payoneer.cloud.box-autoTest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>com.payoneer.cloud.box-autotest-root</name>
+
+    <properties>
+        <!--suppress UnresolvedMavenProperty -->
+        <webdriver.chrome.driver>
+            ${project.basedir}/src/main/resources/webdriver/${platform}/chromedriver${executableSuffix}
+        </webdriver.chrome.driver>
+        <!--suppress UnresolvedMavenProperty -->
+        <webdriver.gecko.driver>
+            ${project.basedir}/src/main/resources/webdriver/${platform}/geckodriver${executableSuffix}
+        </webdriver.gecko.driver>
+        <aspectj.version>1.8.4</aspectj.version>
+        <cucumber.testng.version>4.1.1</cucumber.testng.version>
+        <testng.version>7.0.0</testng.version>
+        <cucumber-picocontainer.version>5.6.0</cucumber-picocontainer.version>
+        <cucumber.version>4.1.1</cucumber.version>
+        <selenium.version>3.141.59</selenium.version>
+        <cucumber-reporting.version>3.8.0</cucumber-reporting.version>
+        <allure.maven.version>2.8</allure.maven.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
+        <allure.bundle.version>1.5.4</allure.bundle.version>
+        <allure.cucumber.version>2.13.5</allure.cucumber.version>
+        <allure.report.version>2.7.0</allure.report.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!-- For web browser testing -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <!-- Cucumber & Gherkins -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.testng.version}</version>
+        </dependency>
+
+        <!--testng dependencies -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- Allure dependencies -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>${allure.maven.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-bundle</artifactId>
+            <version>${allure.bundle.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber4-jvm</artifactId>
+            <version>${allure.cucumber.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                    <configuration>
+                        <!-- <rerunFailingTestsCount>1</rerunFailingTestsCount> -->
+                        <systemPropertyVariables>
+                            <!-- Should be provided by user -->
+                            <env>${env}</env>
+                            <headless>${headless}</headless>
+                            <isParallel>${isParallel}</isParallel>
+                            <browser>${testproperty}</browser>
+                            <cucumber.options>${cucumber.options}</cucumber.options>
+                            <testsuite>${testsuite}</testsuite>
+                            <allure.results.directory>${basedir}/target/allure-results</allure.results.directory>
+                            <!-- Will be taken from parent -->
+                            <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                            <webdriver.gecko.driver>${webdriver.gecko.driver}</webdriver.gecko.driver>
+                        </systemPropertyVariables>
+                        <testFailureIgnore>true</testFailureIgnore>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/main/resources/runner/${testsuite}.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        </argLine>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.report.version}</reportVersion>
+                    <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
+                    <reportDirectory>${basedir}/allure-reports/box</reportDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generateAllureReport</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>publishAllureReport</id>
+                        <goals>
+                            <goal>serve</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+    <profiles>
+        <!-- OS profiles (choosed automatically)-->
+        <profile>
+            <id>windows</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+            <properties>
+                <platform>win</platform>
+                <executableSuffix>.exe</executableSuffix>
+                <cucumberOptions>-m</cucumberOptions>
+            </properties>
+        </profile>
+        <profile>
+            <id>mac</id>
+            <activation>
+                <os>
+                    <family>Mac</family>
+                </os>
+            </activation>
+            <properties>
+                <platform>mac</platform>
+                <cucumberOptions>-m</cucumberOptions>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux64</id>
+            <activation>
+                <os>
+                    <family>Linux</family>
+                </os>
+            </activation>
+            <properties>
+                <platform>linux</platform>
+            </properties>
+        </profile>
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <testsuite>testng_chrome</testsuite>
+                <testproperty>chrome</testproperty>
+            </properties>
+        </profile>
+        <profile>
+            <id>firefox</id>
+            <properties>
+                <testsuite>testng_firefox</testsuite>
+                <testproperty>chrome</testproperty>
+            </properties>
+        </profile>
+    </profiles>
+</project>

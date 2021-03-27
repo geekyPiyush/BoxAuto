@@ -1,0 +1,12 @@
+{
+  "chrome_desktop": {
+    "name": "Chrome",
+    "width": "1366",
+    "height": "768"
+  },
+  "firefox_desktop": {
+    "name": "Firefox",
+    "width": "1366",
+    "height": "768"
+  }
+}

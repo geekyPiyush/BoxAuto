@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Box.com test task" duration-ms="74844" started-at="2021-03-27T00:56:37 IST" finished-at="2021-03-27T00:57:52 IST">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:TestRunner@34123d65]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="desktop_browsers_chrome_desktop" duration-ms="74844" started-at="2021-03-27T00:56:37 IST" finished-at="2021-03-27T00:57:52 IST">
+      <class name="TestRunner">
+        <test-method status="PASS" signature="beforeEachTestNgTest(java.lang.String, java.lang.String)[pri:0, instance:TestRunner@34123d65]" name="beforeEachTestNgTest" is-config="true" duration-ms="2221" started-at="2021-03-27T00:56:37 IST" finished-at="2021-03-27T00:56:40 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[desktop_browser]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome_desktop]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeEachTestNgTest -->
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@34123d65]" name="setUpClass" is-config="true" duration-ms="381" started-at="2021-03-27T00:56:40 IST" finished-at="2021-03-27T00:56:40 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:TestRunner@34123d65]" name="runScenario" duration-ms="47186" started-at="2021-03-27T00:56:40 IST" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-27T00:57:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["System should login into the account successfully with valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["BOX | UI | Login basic operations"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="FAIL" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:TestRunner@34123d65]" name="runScenario" duration-ms="23745" started-at="2021-03-27T00:57:27 IST" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-27T00:57:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["System should not login into the account with invalid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["BOX | UI | Login basic operations"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[-- Invalid credentials should be displayed -- did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: -- Invalid credentials should be displayed -- did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.payoneer.cloud.box.steps.SignInPageStepDefs.verify_invalid_cred_message(SignInPageStepDefs.java:61)
+at ✽.I verify user gets invalid credential message(src/test/resources/features/01_Login.feature:18)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@34123d65]" name="tearDownClass" is-config="true" duration-ms="150" started-at="2021-03-27T00:57:51 IST" finished-at="2021-03-27T00:57:51 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="afterEachTestNgTest()[pri:0, instance:TestRunner@34123d65]" name="afterEachTestNgTest" is-config="true" duration-ms="1074" started-at="2021-03-27T00:57:51 IST" finished-at="2021-03-27T00:57:52 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTestNgTest -->
+      </class> <!-- TestRunner -->
+    </test> <!-- desktop_browsers_chrome_desktop -->
+  </suite> <!-- Box.com test task -->
+</testng-results>

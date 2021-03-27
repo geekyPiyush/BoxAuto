@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 75.87 s <<< FAILURE! - in TestSuite
+runScenario(TestRunner)  Time elapsed: 23.75 s  <<< FAILURE!
+java.lang.AssertionError: -- Invalid credentials should be displayed -- did not expect to find [true] but found [false]
+
