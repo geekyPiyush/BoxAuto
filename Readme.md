@@ -58,13 +58,14 @@ Below are the tools and libraries utilizid within this framework
 
 9. In order to view the allure-reports there are two options
 
-   a. Download allure command line tool as mentioned in Tech Stack section. Once done, run the below command from CLI
+   1. Download allure command line tool as mentioned in Tech Stack section. Once done, run the below command from CLI
       `allure open BoxAuto/allure-reports/box`
       
       ![image](https://user-images.githubusercontent.com/72020821/112713045-006bd580-8ef9-11eb-9654-ed0b5a3c2aa8.png)
       
       This will launch the report on a static http server and open it in default browser
-   b. Goto `BoxAuto/allure-reports/Box/` and ooen the index.html in browser to view report
+      
+   2. Goto `BoxAuto/allure-reports/Box/` and ooen the index.html in browser to view report
  
 ## Report view
 
