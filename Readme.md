@@ -60,12 +60,13 @@ Below are the tools and libraries utilizid within this framework
 
    a. Download allure command line tool as mentioned in Tech Stack section. Once done, run the below command from CLI
       `allure open BoxAuto/allure-reports/box`
+      
       ![image](https://user-images.githubusercontent.com/72020821/112713045-006bd580-8ef9-11eb-9654-ed0b5a3c2aa8.png)
       
       This will launch the report on a static http server and open it in default browser
    b. Goto `BoxAuto/allure-reports/Box/` and ooen the index.html in browser to view report
  
-** Report view
+## Report view
 
 Report generated for running 2 login tests out of which 1 failed
 
@@ -77,6 +78,32 @@ Report generated for running 2 login tests out of which 1 failed
 * Scroll down till Tear down method of failed test scenario. Expand it and sceenshot of failed area would be attached
 
 ![image](https://user-images.githubusercontent.com/72020821/112713176-f0082a80-8ef9-11eb-85e0-753bdfcb93e0.png)
+
+## Framework Architecture
+
+BoxAuto is built upon as a Maven project hence all the Helpers and factory methods goes in `/src/main` and all the test features and resources goto `src/test`
+
+* `src/main/java` comprises of 
+   a. all the Helpers methods for element operations on the screen
+   b. The Drivers package dealing with loading the browser,dimensions and related drivers
+   c. Factory package deals with core logic for critical operations in the system.
+   d. Hooks package for taking screenshot after scenario fails
+   e. Loaders for loading appropriate json files into memory
+   f. Loggers for formatted logging purpose
+   g. state for maintaing common state across steps.
+   h. resources comprising of 
+      * common configurations such as desktop_browser properties and live.json
+      * test data files for uploading purpose in application
+      * testng xml files 
+      * browser driver for chrome and firefox
+
+* `src/test/java` comprises of
+   a. Constants containing the page locators.
+   b. PageObjects for creating webelements out of locators.
+   c. Steps having functional step definitions for every area
+   d. TestRunner file or testng runner file
+   e. resources comprising of ** Feature files ** for every functionality
+
 
  
    
